@@ -11,7 +11,7 @@ O número aparece como uma constante chamada `WHATSAPP` (formato internacional, 
 
 Arquivos onde ele aparece:
 - `src/routes/index.tsx` (Home)
-- `src/routes/links.tsx` (Cartão Digital)
+- `src/routes/bio.tsx` (Cartão Digital)
 - `src/routes/$.tsx` (página 404)
 - `src/components/LegalLanding.tsx` (todas as Landing Pages)
 
@@ -33,9 +33,9 @@ Edite `src/lib/seo.ts`. Ali ficam nome, telefone, e-mail, endereço, coordenadas
 
 ---
 
-## Seção 2 — Cartão Digital (/links): adicionar ou remover botões
+## Seção 2 — Cartão Digital (/bio): adicionar ou remover botões
 
-Arquivo: `src/routes/links.tsx`.
+Arquivo: `src/routes/bio.tsx`.
 
 Existem duas listas:
 
@@ -118,7 +118,7 @@ Passo a passo para ativar uma delas:
 
 1. **Personalize o conteúdo** — abra o arquivo da rota e edite os mesmos campos descritos na Seção 3 (`title`, `pains`, `benefits`, `testimonials`, `faq`, `heroImage`).
 2. **Ajuste o SEO** — no bloco `head()`, atualize título, descrição e o endereço canônico.
-3. **Divulgue o link** — se quiser que apareça no site, adicione a rota na lista de links do rodapé em `src/routes/index.tsx` e/ou na lista `serviceLinks` de `src/routes/links.tsx`.
+3. **Divulgue o link** — se quiser que apareça no site, adicione a rota na lista de links do rodapé em `src/routes/index.tsx` e/ou na lista `serviceLinks` de `src/routes/bio.tsx`.
 4. **Coloque no sitemap** — abra `public/sitemap.xml` e adicione um bloco:
 
 ```xml
@@ -174,7 +174,7 @@ window.gtag?.("event", "conversion", {
 | `click_whatsapp` | Qualquer clique em botão de WhatsApp |
 | `generate_lead` | Envio do formulário de uma LP |
 | `page_view_custom` | Visualização de página |
-| `click_link_whatsapp`, `click_link_site_oficial`, `click_link_maps`, `click_link_instagram`, `click_link_email`, `click_link_share`, `click_link_especialidade` | Cliques na página /links |
+| `click_link_whatsapp`, `click_link_site_oficial`, `click_link_maps`, `click_link_instagram`, `click_link_email`, `click_link_share`, `click_link_especialidade` | Cliques na página /bio |
 | `click_404_whatsapp`, `click_404_home`, `click_404_lp` | Cliques na página de erro 404 |
 
 Todos podem ser usados como conversão no GTM ou no Google Ads.

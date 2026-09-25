@@ -16,13 +16,13 @@ import { Route as RegularizacaoFundiariaRouteImport } from './routes/regularizac
 import { Route as PrevidenciarioRouteImport } from './routes/previdenciario'
 import { Route as PensaoEGuardaRouteImport } from './routes/pensao-e-guarda'
 import { Route as PensaoRouteImport } from './routes/pensao'
-import { Route as LinksRouteImport } from './routes/links'
 import { Route as InventarioRouteImport } from './routes/inventario'
 import { Route as ImobiliarioRouteImport } from './routes/imobiliario'
 import { Route as DivorcioRouteImport } from './routes/divorcio'
 import { Route as DireitoFundiarioRouteImport } from './routes/direito-fundiario'
 import { Route as DireitoDigitalRouteImport } from './routes/direito-digital'
 import { Route as DireitoBancarioRouteImport } from './routes/direito-bancario'
+import { Route as BioRouteImport } from './routes/bio'
 import { Route as SplatRouteImport } from './routes/$'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -62,11 +62,6 @@ const PensaoRoute = PensaoRouteImport.update({
   path: '/pensao',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LinksRoute = LinksRouteImport.update({
-  id: '/links',
-  path: '/links',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const InventarioRoute = InventarioRouteImport.update({
   id: '/inventario',
   path: '/inventario',
@@ -97,6 +92,11 @@ const DireitoBancarioRoute = DireitoBancarioRouteImport.update({
   path: '/direito-bancario',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BioRoute = BioRouteImport.update({
+  id: '/bio',
+  path: '/bio',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SplatRoute = SplatRouteImport.update({
   id: '/$',
   path: '/$',
@@ -111,13 +111,13 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
+  '/bio': typeof BioRoute
   '/direito-bancario': typeof DireitoBancarioRoute
   '/direito-digital': typeof DireitoDigitalRoute
   '/direito-fundiario': typeof DireitoFundiarioRoute
   '/divorcio': typeof DivorcioRoute
   '/imobiliario': typeof ImobiliarioRoute
   '/inventario': typeof InventarioRoute
-  '/links': typeof LinksRoute
   '/pensao': typeof PensaoRoute
   '/pensao-e-guarda': typeof PensaoEGuardaRoute
   '/previdenciario': typeof PrevidenciarioRoute
@@ -129,13 +129,13 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
+  '/bio': typeof BioRoute
   '/direito-bancario': typeof DireitoBancarioRoute
   '/direito-digital': typeof DireitoDigitalRoute
   '/direito-fundiario': typeof DireitoFundiarioRoute
   '/divorcio': typeof DivorcioRoute
   '/imobiliario': typeof ImobiliarioRoute
   '/inventario': typeof InventarioRoute
-  '/links': typeof LinksRoute
   '/pensao': typeof PensaoRoute
   '/pensao-e-guarda': typeof PensaoEGuardaRoute
   '/previdenciario': typeof PrevidenciarioRoute
@@ -148,13 +148,13 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
+  '/bio': typeof BioRoute
   '/direito-bancario': typeof DireitoBancarioRoute
   '/direito-digital': typeof DireitoDigitalRoute
   '/direito-fundiario': typeof DireitoFundiarioRoute
   '/divorcio': typeof DivorcioRoute
   '/imobiliario': typeof ImobiliarioRoute
   '/inventario': typeof InventarioRoute
-  '/links': typeof LinksRoute
   '/pensao': typeof PensaoRoute
   '/pensao-e-guarda': typeof PensaoEGuardaRoute
   '/previdenciario': typeof PrevidenciarioRoute
@@ -168,13 +168,13 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/$'
+    | '/bio'
     | '/direito-bancario'
     | '/direito-digital'
     | '/direito-fundiario'
     | '/divorcio'
     | '/imobiliario'
     | '/inventario'
-    | '/links'
     | '/pensao'
     | '/pensao-e-guarda'
     | '/previdenciario'
@@ -186,13 +186,13 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/$'
+    | '/bio'
     | '/direito-bancario'
     | '/direito-digital'
     | '/direito-fundiario'
     | '/divorcio'
     | '/imobiliario'
     | '/inventario'
-    | '/links'
     | '/pensao'
     | '/pensao-e-guarda'
     | '/previdenciario'
@@ -204,13 +204,13 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/$'
+    | '/bio'
     | '/direito-bancario'
     | '/direito-digital'
     | '/direito-fundiario'
     | '/divorcio'
     | '/imobiliario'
     | '/inventario'
-    | '/links'
     | '/pensao'
     | '/pensao-e-guarda'
     | '/previdenciario'
@@ -223,13 +223,13 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SplatRoute: typeof SplatRoute
+  BioRoute: typeof BioRoute
   DireitoBancarioRoute: typeof DireitoBancarioRoute
   DireitoDigitalRoute: typeof DireitoDigitalRoute
   DireitoFundiarioRoute: typeof DireitoFundiarioRoute
   DivorcioRoute: typeof DivorcioRoute
   ImobiliarioRoute: typeof ImobiliarioRoute
   InventarioRoute: typeof InventarioRoute
-  LinksRoute: typeof LinksRoute
   PensaoRoute: typeof PensaoRoute
   PensaoEGuardaRoute: typeof PensaoEGuardaRoute
   PrevidenciarioRoute: typeof PrevidenciarioRoute
@@ -290,13 +290,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PensaoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/links': {
-      id: '/links'
-      path: '/links'
-      fullPath: '/links'
-      preLoaderRoute: typeof LinksRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/inventario': {
       id: '/inventario'
       path: '/inventario'
@@ -339,6 +332,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DireitoBancarioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bio': {
+      id: '/bio'
+      path: '/bio'
+      fullPath: '/bio'
+      preLoaderRoute: typeof BioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/$': {
       id: '/$'
       path: '/$'
@@ -359,13 +359,13 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SplatRoute: SplatRoute,
+  BioRoute: BioRoute,
   DireitoBancarioRoute: DireitoBancarioRoute,
   DireitoDigitalRoute: DireitoDigitalRoute,
   DireitoFundiarioRoute: DireitoFundiarioRoute,
   DivorcioRoute: DivorcioRoute,
   ImobiliarioRoute: ImobiliarioRoute,
   InventarioRoute: InventarioRoute,
-  LinksRoute: LinksRoute,
   PensaoRoute: PensaoRoute,
   PensaoEGuardaRoute: PensaoEGuardaRoute,
   PrevidenciarioRoute: PrevidenciarioRoute,

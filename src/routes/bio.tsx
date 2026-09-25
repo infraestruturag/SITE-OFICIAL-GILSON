@@ -25,7 +25,7 @@ const handleWhatsAppClick = (label: string) => {
   trackEvent("click_whatsapp", { local: label, method: "whatsapp" });
 };
 
-export const Route = createFileRoute("/links")({
+export const Route = createFileRoute("/bio")({
   head: () => ({
     meta: [
       { title: "Dr. Gilson Carvalho | Cartão Virtual e Canais de Atendimento" },
@@ -42,12 +42,12 @@ export const Route = createFileRoute("/links")({
           "Acesse rapidamente nossos canais oficiais de atendimento, localização do escritório e agendamento de consultas jurídicas.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://gilsoncarvalho.com/links" },
+      { property: "og:url", content: "https://gilsoncarvalho.com/bio" },
       { property: "og:image", content: "https://gilsoncarvalho.com/og-gilson.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "https://gilsoncarvalho.com/og-gilson.jpg" },
     ],
-    links: [{ rel: "canonical", href: "https://gilsoncarvalho.com/links" }],
+    links: [{ rel: "canonical", href: "https://gilsoncarvalho.com/bio" }],
   }),
   component: LinksPage,
 });
