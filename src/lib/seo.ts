@@ -10,7 +10,7 @@ export const LOCAL_BUSINESS_JSONLD = {
   logo: "https://gilsoncarvalho.com/logo_gilson.png",
   url: "https://gilsoncarvalho.com",
   telephone: "+5563984474070",
-  email: "advogado@gilsoncarvalho.com",
+  email: "profgilsonfilho@gmail.com",
   priceRange: "$$$",
   areaServed: "BR",
   founder: {

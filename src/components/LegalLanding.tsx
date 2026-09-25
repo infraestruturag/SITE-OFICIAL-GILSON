@@ -11,7 +11,7 @@ const WHATSAPP = "5563984474070";
 const INSTAGRAM_URL = "https://instagram.com/gilsoncarvalho.adv";
 const VIDEO_POSTER_URL =
   "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=85";
-const EMAIL = "advogado@gilsoncarvalho.com";
+const EMAIL = "profgilsonfilho@gmail.com";
 const MAPS_URL = "https://maps.google.com/?q=Av.+Guanabara,+1669,+Centro+-+Gurupi,+TO";
 const MAPS_URL_RJ = "https://maps.app.goo.gl/aHr8H2udhfHtgt7r5";
 const MAPS_EMBED = "https://www.google.com/maps?q=Av.%20Guanabara%2C%201669%2C%20Centro%20-%20Gurupi%2C%20TO&output=embed";
@@ -510,7 +510,7 @@ export default function LegalLanding(p: LandingProps) {
                   </span>
                   <div>
                     <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-0.5">Filial · Rio de Janeiro/RJ</div>
-                    <div className="text-stone-100 text-sm">Rio de Janeiro/RJ — atendimento com hora marcada</div>
+                    <div className="text-stone-100 text-sm">Av. Rio Branco, 131 - 17º andar - Centro, Rio de Janeiro - RJ, 20040-006 - Sala 1703</div>
                   </div>
                 </a>
                 <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[11px] tracking-[0.25em] uppercase text-stone-300 hover:text-gold transition-colors pt-2">
@@ -550,7 +550,7 @@ export default function LegalLanding(p: LandingProps) {
             <a href={MAPS_URL_RJ} target="_blank" rel="noopener noreferrer" className="card-hover-gold block p-6 border border-gold/20" style={{ backgroundColor: "rgba(30,30,30,0.7)" }}>
               <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-2">Filial</div>
               <div className="font-serif-luxe text-xl text-stone-50 mb-2">Rio de Janeiro — RJ</div>
-              <p className="text-stone-300 text-sm">Atendimento presencial mediante agendamento prévio.</p>
+              <p className="text-stone-300 text-sm">Av. Rio Branco, 131 - 17º andar - Centro, Rio de Janeiro - RJ, 20040-006 - Sala 1703</p>
               <span className="inline-flex items-center gap-2 mt-3 text-[11px] tracking-[0.2em] uppercase text-gold">
                 <MapPin size={13} /> Ver no mapa
               </span>
@@ -589,7 +589,7 @@ export default function LegalLanding(p: LandingProps) {
               <div>
                 <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-1">Filial · Rio de Janeiro/RJ</div>
                 <a href={MAPS_URL_RJ} target="_blank" rel="noopener noreferrer" className="block text-stone-300 hover:text-gold transition-colors">
-                  Rio de Janeiro/RJ — ver no mapa
+                  Av. Rio Branco, 131 - 17º andar - Centro, Rio de Janeiro - RJ, 20040-006 - Sala 1703
                 </a>
               </div>
               <a href={waLink(p.whatsappMessage)} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsApp("telefone")} className="block text-stone-300 hover:text-gold transition-colors">

@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import logo from "@/assets/logo_gilson.png";
-import avatarAsset from "@/assets/fotogilsonlink.png.asset.json";
+import avatar from "@/assets/fotogilsonlink.png";
 import { trackWhatsApp, trackEvent } from "@/lib/analytics";
 
 const WHATSAPP = "5563984474070";
@@ -19,9 +19,7 @@ const waMessage = "Olá Dr. Gilson, vim através do site e gostaria de falar sob
 const waLink = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`;
 const INSTAGRAM_URL = "https://www.instagram.com/gilsoncarvalho.adv/";
 const MAPS_URL = "https://maps.google.com/?q=Av.+Guanabara,+1669,+Centro+-+Gurupi,+TO";
-const EMAIL_URL = "mailto:advogado@gilsoncarvalho.com";
-const AVATAR_URL = avatarAsset.url;
-
+const EMAIL_URL = "mailto:profgilsonfilho@gmail.com";
 const handleWhatsAppClick = (label: string) => {
   trackWhatsApp(label);
   trackEvent("click_whatsapp", { local: label, method: "whatsapp" });
@@ -105,7 +103,7 @@ const topActions: ActionItem[] = [
   },
   {
     label: "Contato via E-mail Profissional",
-    sublabel: "advogado@gilsoncarvalho.com",
+    sublabel: "profgilsonfilho@gmail.com",
     href: EMAIL_URL,
     external: true,
     Icon: Mail,
@@ -251,12 +249,12 @@ function LinksPage() {
             style={{ borderColor: "#c9a55a" }}
           >
             <img
-              src={AVATAR_URL}
+              src={avatar}
               alt="Dr. Gilson Carvalho"
               width={160}
               height={160}
               decoding="async"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
               loading="eager"
             />
           </div>

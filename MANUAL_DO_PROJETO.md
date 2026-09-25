@@ -24,7 +24,7 @@ const WHATSAPP = "5563984474070"; // 55 + DDD + número
 A mensagem inicial enviada ao WhatsApp fica logo abaixo, na variável `waMessage`.
 
 ### 1.2 E-mail, Instagram e endereço
-- **E-mail:** procure por `advogado@gilsoncarvalho.com` nos mesmos arquivos e substitua.
+- **E-mail:** procure por `profgilsonfilho@gmail.com` nos mesmos arquivos.
 - **Instagram:** constante `INSTAGRAM_URL` (`https://www.instagram.com/gilsoncarvalho.adv/`).
 - **Endereço e mapa:** o texto do endereço está nos rodapés (`index.tsx`, `LegalLanding.tsx`) e o mapa é um `<iframe>` do Google Maps na seção "Nosso Escritório" em `src/routes/index.tsx`.
 
