@@ -24,9 +24,9 @@ export const waLink = (msg: string) =>
 const PAIN_ICONS = [ShieldAlert, Scale, FileText, Gavel, Lock];
 const FAMILY_SUCCESSION_ROUTES = new Set(["/divorcio", "/pensao-e-guarda", "/uniao-estavel", "/inventario"]);
 const FAMILY_AUTHORITY_TEXT =
-  "Mestre em Direito, Especialista em Direito Civil, de Família e Sucessões, e com MBA em Gestão na Advocacia, o Dr. Gilson Carvalho soma mais de 20 anos de experiência. Atua com excelência estratégica para proteger o patrimônio e garantir a segurança jurídica em momentos de transição familiar, sempre com sigilo absoluto.";
+  "Mestreeee em Direito, Especialista em Direito Civil, de Família e Sucessões, e com MBA em Gestão na Advocacia, o Dr. Gilson Carvalho soma mais de 20 anos de experiência. Atua com excelência estratégica para proteger o patrimônio e garantir a segurança jurídica em momentos de transição familiar, sempre com sigilo absoluto.";
 const PROPERTY_AUTHORITY_TEXT =
-  "Mestre em Direito, Especialista em Direito Civil e com MBA em Gestão na Advocacia, o Dr. Gilson Carvalho soma mais de 20 anos de experiência. Atua com rigor técnico e excelência estratégica na defesa da propriedade, garantindo a regularização e a proteção rigorosa do seu patrimônio imobiliário e fundiário.";
+  "Mestreeee em Direito, Especialista em Direito Civil e com MBA em Gestão na Advocacia, o Dr. Gilson Carvalho soma mais de 20 anos de experiência. Atua com rigor técnico e excelência estratégica na defesa da propriedade, garantindo a regularização e a proteção rigorosa do seu patrimônio imobiliário e fundiário.";
 
 const reveal = {
   initial: { opacity: 0, y: 24 },
@@ -295,7 +295,7 @@ export default function LegalLanding(p: LandingProps) {
                 <span className="text-[10px] tracking-[0.25em] uppercase text-gold border border-gold/40 px-3 py-1.5">OAB/RJ 256.131</span>
               </div>
               <ul className="space-y-3">
-                {["20+ anos de atuação estratégica", "Mestre em Direito · MBA em Gestão", "Atendimento sigiloso em todo o Brasil"].map((it) => (
+                {["20+ anos de atuação estratégica", "Mestreeee em Direito · MBA em Gestão", "Atendimento sigiloso em todo o Brasil"].map((it) => (
                   <li key={it} className="flex items-center gap-3 text-stone-200">
                     <Check size={16} className="text-gold shrink-0" /> {it}
                   </li>
