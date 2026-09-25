@@ -12,7 +12,7 @@ import {
 
 import logo from "@/assets/logo_gilson.png";
 import { LOCAL_BUSINESS_JSONLD } from "@/lib/seo";
-import { initAnalytics, trackLead, trackPageView, trackWhatsApp } from "@/lib/analytics";
+import { initAnalytics, trackPageView, trackWhatsApp } from "@/lib/analytics";
 import imgGilson from "@/assets/gilsonfoto1.png";
 import imgGilson2 from "@/assets/fotogilson3.png";
 import imgEscritorio from "@/assets/escritorio.png";
@@ -57,6 +57,12 @@ const waLink = (msg = "Olá Dr. Gilson, vim através do site e gostaria de falar
   `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
 
 const INSTAGRAM_URL = "https://instagram.com/gilsoncarvalho.adv";
+const GURUPI_ADDRESS = "Av. Guanabara, nº 1669, Centro — Gurupi/TO, 77403-080";
+const RIO_ADDRESS = "Av. Rio Branco, 131 - 17º andar - Sala 1703 - Centro, Rio de Janeiro - RJ, 20040-006";
+const GURUPI_DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent("Av. Guanabara, nº 1669, Centro, Gurupi/TO, 77403-080")}`;
+const RIO_DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent("Av. Rio Branco, 131, Centro, Rio de Janeiro/RJ, 20040-006")}`;
+const GURUPI_MAP_EMBED = `https://www.google.com/maps?q=${encodeURIComponent("Av. Guanabara, nº 1669, Centro, Gurupi/TO, 77403-080")}&output=embed`;
+const RIO_MAP_EMBED = `https://www.google.com/maps?q=${encodeURIComponent("Av. Rio Branco, 131, Centro, Rio de Janeiro/RJ, 20040-006")}&output=embed`;
 
 const reveal = {
   initial: { opacity: 0, y: 20 },
@@ -108,7 +114,6 @@ function MagneticLink({
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [form, setForm] = useState({ nome: "", telefone: "", email: "", area: "", mensagem: "" });
   const [waTipVisible, setWaTipVisible] = useState(false);
   const [waTipKey, setWaTipKey] = useState(0);
   const [activeSection, setActiveSection] = useState("inicio");
@@ -143,22 +148,6 @@ function Index() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const maskPhone = (v: string) => {
-    const d = v.replace(/\D/g, "").slice(0, 11);
-    if (d.length <= 2) return d.length ? `(${d}` : "";
-    if (d.length <= 6) return `(${d.slice(0, 2)}) ${d.slice(2)}`;
-    if (d.length <= 10) return `(${d.slice(0, 2)}) ${d.slice(2, 6)}-${d.slice(6)}`;
-    return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const msg = `Olá, sou ${form.nome}.%0ATelefone: ${form.telefone}%0AE-mail: ${form.email}%0AÁrea de interesse: ${form.area}%0ANecessidade: ${form.mensagem}`;
-    trackLead(form.area || "Home");
-    trackWhatsApp("formulario_home");
-    window.open(`https://wa.me/${WHATSAPP}?text=${msg}`, "_blank", "noopener");
-  };
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -591,7 +580,7 @@ function Index() {
               Vamos conversar sobre o <em className="text-gold-gradient not-italic">seu caso.</em>
             </h2>
             <p className="text-stone-300 leading-relaxed mb-12 max-w-lg">
-              Preencha o formulário ao lado ou utilize um de nossos canais diretos. Retornaremos com a discrição e a atenção que o seu caso merece.
+              Inicie seu atendimento diretamente com o escritório, com a discrição e a atenção que o seu caso merece.
             </p>
             <div className="space-y-6">
               {[
@@ -625,69 +614,26 @@ function Index() {
             </div>
           </div>
 
-          <div className="p-8 md:p-10 border border-gold/20" style={{ backgroundColor: "#1f1f1f" }}>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {[
-                { id: "nome", label: "Nome Completo", type: "text", placeholder: "Seu nome completo" },
-                { id: "telefone", label: "Telefone / WhatsApp", type: "tel", placeholder: "(63) 99999-9999" },
-                { id: "email", label: "E-mail", type: "email", placeholder: "seu@email.com" },
-              ].map(f => (
-                <div key={f.id}>
-                  <label htmlFor={f.id} className="block text-[10px] tracking-[0.3em] uppercase text-gold mb-3">{f.label}</label>
-                  <input
-                    id={f.id}
-                    type={f.type}
-                    required
-                    maxLength={f.id === "telefone" ? 15 : 150}
-                    placeholder={f.placeholder}
-                    inputMode={f.id === "telefone" ? "numeric" : undefined}
-                    value={form[f.id as keyof typeof form]}
-                    onChange={e => {
-                      const v = f.id === "telefone" ? maskPhone(e.target.value) : e.target.value;
-                      setForm({ ...form, [f.id]: v });
-                    }}
-                    className="w-full bg-transparent border-b border-white/20 focus:border-gold py-3 text-stone-100 placeholder:text-stone-600 outline-none transition-colors"
-                  />
-                </div>
-              ))}
-              <div>
-                <label htmlFor="area" className="block text-[10px] tracking-[0.3em] uppercase text-gold mb-3">Área de Interesse</label>
-                <select
-                  id="area"
-                  required
-                  value={form.area}
-                  onChange={e => setForm({ ...form, area: e.target.value })}
-                  className="w-full bg-transparent border-b border-white/20 focus:border-gold py-3 text-stone-100 outline-none"
-                  style={{ backgroundColor: "#1f1f1f" }}
-                >
-                  <option value="">Selecione uma área...</option>
-                  <option>Direito de Família e Sucessões</option>
-                  <option>Direito Civil & Contratos</option>
-                  <option>Direito Imobiliário</option>
-                  <option>Direito Penal / Criminal</option>
-                  <option>Outro</option>
-                </select>
-              </div>
-              <div>
-                <label htmlFor="mensagem" className="block text-[10px] tracking-[0.3em] uppercase text-gold mb-3">Relate brevemente a sua necessidade</label>
-                <textarea
-                  id="mensagem"
-                  required
-                  rows={4}
-                  maxLength={1000}
-                  placeholder="Ex: Gostaria de entender sobre planejamento sucessório / holding familiar..."
-                  value={form.mensagem}
-                  onChange={(e) => setForm({ ...form, mensagem: e.target.value })}
-                  className="w-full bg-transparent border border-white/15 focus:border-gold p-3 text-stone-100 placeholder:text-stone-600 outline-none transition-colors resize-none"
-                />
-              </div>
-              <button type="submit" className="w-full gold-gradient text-charcoal-deep font-medium py-4 text-sm tracking-[0.25em] uppercase hover:shadow-2xl hover:shadow-amber-900/40 transition-all mt-4">
-                Enviar Mensagem
-              </button>
-              <p className="text-[11px] text-stone-400 text-center leading-relaxed pt-1">
-                🔒 Seus dados estão protegidos sob absoluto sigilo profissional e em estrita conformidade com a LGPD.
-              </p>
-            </form>
+          <div className="p-8 md:p-10 border border-gold/25 flex flex-col justify-center gap-8" style={{ backgroundColor: "#1f1f1f" }}>
+            <div>
+              <span className="text-[10px] tracking-[0.3em] uppercase text-gold">Atendimento direto</span>
+              <h3 className="font-serif-luxe text-2xl md:text-3xl text-stone-50 mt-3">Converse com o escritório</h3>
+              <p className="text-stone-300 text-sm leading-relaxed mt-3">Inicie seu atendimento pelo WhatsApp, com sigilo e acompanhamento desde o primeiro contato.</p>
+            </div>
+            <a
+              href={waLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackWhatsApp("contato")}
+              className="inline-flex w-full items-center justify-center gap-3 px-6 py-5 text-xs tracking-[0.2em] uppercase font-semibold text-charcoal-deep transition-colors hover:bg-gold/90"
+              style={{ backgroundColor: "#bfa15f" }}
+            >
+              <FaWhatsapp className="w-5 h-5" /> Iniciar atendimento via WhatsApp
+            </a>
+            <a href="mailto:profgilsonfilho@gmail.com" className="flex items-center gap-4 border-t border-gold/20 pt-6 text-stone-100 hover:text-gold transition-colors">
+              <Mail size={18} className="text-gold shrink-0" />
+              <span className="text-sm">profgilsonfilho@gmail.com</span>
+            </a>
           </div>
         </div>
       </section>
@@ -705,31 +651,54 @@ function Index() {
             </div>
             <h2 className="font-serif-luxe text-4xl md:text-5xl text-stone-50 mb-3">Nossos Escritórios</h2>
             <p className="text-stone-400 text-sm md:text-base mb-8">Atuação em Tocantins e Rio de Janeiro</p>
-            <div className="grid md:grid-cols-2 gap-6 text-left max-w-4xl mx-auto">
-              <a href="https://maps.google.com/?q=Av.+Guanabara,+1669,+Centro+-+Gurupi,+TO" target="_blank" rel="noopener noreferrer" className="card-hover-gold block p-6 border border-gold/25" style={{ backgroundColor: "rgba(30,30,30,0.7)" }}>
-                <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-2">Matriz</div>
-                <div className="font-serif-luxe text-xl text-stone-50 mb-2">Gurupi — Tocantins</div>
-                <p className="text-stone-300 text-sm">Av. Guanabara, nº 1669, Centro — Gurupi/TO</p>
-                <span className="inline-flex items-center gap-2 mt-3 text-[11px] tracking-[0.2em] uppercase text-gold"><MapPin size={13} /> Ver no mapa</span>
-              </a>
-              <a href="https://maps.app.goo.gl/aHr8H2udhfHtgt7r5" target="_blank" rel="noopener noreferrer" className="card-hover-gold block p-6 border border-gold/25" style={{ backgroundColor: "rgba(30,30,30,0.7)" }}>
-                <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-2">Filial</div>
-                <div className="font-serif-luxe text-xl text-stone-50 mb-2">Rio de Janeiro — RJ</div>
-                <p className="text-stone-300 text-sm">Av. Rio Branco, 131 - 17º andar - Centro, Rio de Janeiro - RJ, 20040-006 - Sala 1703</p>
-                <span className="inline-flex items-center gap-2 mt-3 text-[11px] tracking-[0.2em] uppercase text-gold"><MapPin size={13} /> Ver no mapa</span>
-              </a>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+              {[
+                {
+                  branch: "Matriz",
+                  registration: "OAB/TO 2.591",
+                  city: "Gurupi — Tocantins",
+                  address: GURUPI_ADDRESS,
+                  directions: GURUPI_DIRECTIONS_URL,
+                  map: GURUPI_MAP_EMBED,
+                  title: "Mapa da matriz em Gurupi, Tocantins",
+                  tracking: "localizacao_gurupi",
+                },
+                {
+                  branch: "Filial",
+                  registration: "OAB/RJ 256.131",
+                  city: "Rio de Janeiro — RJ",
+                  address: RIO_ADDRESS,
+                  directions: RIO_DIRECTIONS_URL,
+                  map: RIO_MAP_EMBED,
+                  title: "Mapa da filial no Rio de Janeiro, RJ",
+                  tracking: "localizacao_rio",
+                },
+              ].map((office) => (
+                <article key={office.branch} className="card-hover-gold flex flex-col overflow-hidden border border-gold/25 shadow-2xl shadow-black/40" style={{ backgroundColor: "rgba(30,30,30,0.9)" }}>
+                  <iframe
+                    title={office.title}
+                    src={office.map}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="h-64 w-full border-b border-gold/25"
+                  />
+                  <div className="flex flex-1 flex-col p-6 md:p-7">
+                    <span className="text-[10px] tracking-[0.25em] uppercase text-gold">{office.branch} • {office.registration}</span>
+                    <h3 className="font-serif-luxe text-2xl text-stone-50 mt-3">{office.city}</h3>
+                    <p className="text-stone-300 text-sm leading-relaxed mt-3 flex-1">{office.address}</p>
+                    <div className="grid grid-cols-2 gap-3 mt-6">
+                      <a href={office.directions} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 border border-gold px-3 py-3 text-[10px] sm:text-xs tracking-[0.12em] uppercase text-gold hover:bg-gold hover:text-charcoal-deep transition-colors">
+                        <MapPin size={15} /> Como chegar
+                      </a>
+                      <a href={waLink()} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsApp(office.tracking)} className="inline-flex items-center justify-center gap-2 border border-gold/40 px-3 py-3 text-[10px] sm:text-xs tracking-[0.12em] uppercase text-stone-100 hover:border-gold hover:text-gold transition-colors">
+                        <FaWhatsapp className="w-4 h-4" /> WhatsApp
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
-          <motion.div {...reveal} className="relative border border-gold/30 p-2 shadow-2xl shadow-black/60">
-            <iframe
-              title="Localização do escritório Gilson Carvalho Advocacia"
-              src="https://maps.google.com/maps?q=Avenida%20Guanabara,%201669,%20Centro,%20Gurupi,%20Tocantins&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-[350px] md:h-[420px] rounded-2xl shadow-2xl shadow-black/60"
-              style={{ border: 0 }}
-            />
-          </motion.div>
         </div>
       </section>
 

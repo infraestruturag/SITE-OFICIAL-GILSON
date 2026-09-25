@@ -14,7 +14,12 @@ const VIDEO_POSTER_URL =
 const EMAIL = "profgilsonfilho@gmail.com";
 const MAPS_URL = "https://maps.google.com/?q=Av.+Guanabara,+1669,+Centro+-+Gurupi,+TO";
 const MAPS_URL_RJ = "https://maps.app.goo.gl/aHr8H2udhfHtgt7r5";
-const MAPS_EMBED = "https://www.google.com/maps?q=Av.%20Guanabara%2C%201669%2C%20Centro%20-%20Gurupi%2C%20TO&output=embed";
+const GURUPI_ADDRESS = "Av. Guanabara, nº 1669, Centro — Gurupi/TO, 77403-080";
+const RIO_ADDRESS = "Av. Rio Branco, 131 - 17º andar - Sala 1703 - Centro, Rio de Janeiro - RJ, 20040-006";
+const GURUPI_DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent("Av. Guanabara, nº 1669, Centro, Gurupi/TO, 77403-080")}`;
+const RIO_DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent("Av. Rio Branco, 131, Centro, Rio de Janeiro/RJ, 20040-006")}`;
+const GURUPI_MAP_EMBED = `https://www.google.com/maps?q=${encodeURIComponent("Av. Guanabara, nº 1669, Centro, Gurupi/TO, 77403-080")}&output=embed`;
+const RIO_MAP_EMBED = `https://www.google.com/maps?q=${encodeURIComponent("Av. Rio Branco, 131, Centro, Rio de Janeiro/RJ, 20040-006")}&output=embed`;
 
 
 
@@ -538,34 +543,52 @@ export default function LegalLanding(p: LandingProps) {
             </div>
             <h3 className="font-serif-luxe text-3xl md:text-4xl text-stone-50">Atuação em Tocantins e Rio de Janeiro</h3>
           </div>
-          <div className="grid md:grid-cols-2 gap-6 mb-10">
-            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="card-hover-gold block p-6 border border-gold/20" style={{ backgroundColor: "rgba(30,30,30,0.7)" }}>
-              <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-2">Matriz</div>
-              <div className="font-serif-luxe text-xl text-stone-50 mb-2">Gurupi — Tocantins</div>
-              <p className="text-stone-300 text-sm">Av. Guanabara, nº 1669, Centro — Gurupi/TO</p>
-              <span className="inline-flex items-center gap-2 mt-3 text-[11px] tracking-[0.2em] uppercase text-gold">
-                <MapPin size={13} /> Ver no mapa
-              </span>
-            </a>
-            <a href={MAPS_URL_RJ} target="_blank" rel="noopener noreferrer" className="card-hover-gold block p-6 border border-gold/20" style={{ backgroundColor: "rgba(30,30,30,0.7)" }}>
-              <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-2">Filial</div>
-              <div className="font-serif-luxe text-xl text-stone-50 mb-2">Rio de Janeiro — RJ</div>
-              <p className="text-stone-300 text-sm">Av. Rio Branco, 131 - 17º andar - Centro, Rio de Janeiro - RJ, 20040-006 - Sala 1703</p>
-              <span className="inline-flex items-center gap-2 mt-3 text-[11px] tracking-[0.2em] uppercase text-gold">
-                <MapPin size={13} /> Ver no mapa
-              </span>
-            </a>
-          </div>
-          <div className="border border-gold/20 overflow-hidden shadow-2xl shadow-black/40">
-            <iframe
-              title="Localização do escritório — Av. Guanabara, 1669, Centro, Gurupi/TO"
-              src={MAPS_EMBED}
-              width="100%"
-              height="360"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              style={{ border: 0 }}
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              {
+                branch: "Matriz",
+                registration: "OAB/TO 2.591",
+                city: "Gurupi — Tocantins",
+                address: GURUPI_ADDRESS,
+                directions: GURUPI_DIRECTIONS_URL,
+                map: GURUPI_MAP_EMBED,
+                title: "Mapa da matriz em Gurupi, Tocantins",
+                tracking: "localizacao_gurupi",
+              },
+              {
+                branch: "Filial",
+                registration: "OAB/RJ 256.131",
+                city: "Rio de Janeiro — RJ",
+                address: RIO_ADDRESS,
+                directions: RIO_DIRECTIONS_URL,
+                map: RIO_MAP_EMBED,
+                title: "Mapa da filial no Rio de Janeiro, RJ",
+                tracking: "localizacao_rio",
+              },
+            ].map((office) => (
+              <article key={office.branch} className="card-hover-gold flex flex-col overflow-hidden border border-gold/25 shadow-2xl shadow-black/40" style={{ backgroundColor: "rgba(30,30,30,0.9)" }}>
+                <iframe
+                  title={office.title}
+                  src={office.map}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="h-64 w-full border-b border-gold/25"
+                />
+                <div className="flex flex-1 flex-col p-6 md:p-7">
+                  <span className="text-[10px] tracking-[0.25em] uppercase text-gold">{office.branch} • {office.registration}</span>
+                  <h3 className="font-serif-luxe text-2xl text-stone-50 mt-3">{office.city}</h3>
+                  <p className="text-stone-300 text-sm leading-relaxed mt-3 flex-1">{office.address}</p>
+                  <div className="grid grid-cols-2 gap-3 mt-6">
+                    <a href={office.directions} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 border border-gold px-3 py-3 text-[10px] sm:text-xs tracking-[0.12em] uppercase text-gold hover:bg-gold hover:text-charcoal-deep transition-colors">
+                      <MapPin size={15} /> Como chegar
+                    </a>
+                    <a href={waLink(p.whatsappMessage)} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsApp(office.tracking)} className="inline-flex items-center justify-center gap-2 border border-gold/40 px-3 py-3 text-[10px] sm:text-xs tracking-[0.12em] uppercase text-stone-100 hover:border-gold hover:text-gold transition-colors">
+                      <FaWhatsapp className="w-4 h-4" /> WhatsApp
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
