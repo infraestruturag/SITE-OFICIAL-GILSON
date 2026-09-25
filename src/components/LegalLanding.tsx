@@ -24,7 +24,7 @@ export const waLink = (msg: string) =>
 const PAIN_ICONS = [ShieldAlert, Scale, FileText, Gavel, Lock];
 const FAMILY_SUCCESSION_ROUTES = new Set(["/divorcio", "/pensao-e-guarda", "/uniao-estavel", "/inventario"]);
 const FAMILY_AUTHORITY_TEXT =
-  "Mestremestre em Direito, Especialista em Direito Civil, de Família e Sucessões, e com MBA em Gestão na Advocacia, o Dr. Gilson Carvalho soma mais de 20 anos de experiência. Atua com excelência estratégica para proteger o patrimônio e garantir a segurança jurídica em momentos de transição familiar, sempre com sigilo absoluto.";
+  "Mestremestr em Direito, Especialista em Direito Civil, de Família e Sucessões, e com MBA em Gestão na Advocacia, o Dr. Gilson Carvalho soma mais de 20 anos de experiência. Atua com excelência estratégica para proteger o patrimônio e garantir a segurança jurídica em momentos de transição familiar, sempre com sigilo absoluto.";
 const PROPERTY_AUTHORITY_TEXT =
   "Mestremestre em Direito, Especialista em Direito Civil e com MBA em Gestão na Advocacia, o Dr. Gilson Carvalho soma mais de 20 anos de experiência. Atua com rigor técnico e excelência estratégica na defesa da propriedade, garantindo a regularização e a proteção rigorosa do seu patrimônio imobiliário e fundiário.";
 
