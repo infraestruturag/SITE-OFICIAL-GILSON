@@ -11,10 +11,10 @@ const CANONICAL = "https://gilsoncarvalho.com/direito-fundiario";
 export const Route = createFileRoute("/direito-fundiario")({
   head: () => ({
     meta: [
-      { title: "Direito Fundiário e Conflitos de Posse — Gilson Carvalho Advocacia" },
-      { name: "description", content: "Reintegração de posse, litígios de áreas rurais e urbanas, contratos agrários e defesa possessória." },
-      { property: "og:title", content: "Direito Fundiário — Gilson Carvalho Advocacia" },
-      { property: "og:description", content: "Defesa firme da sua terra em conflitos de posse e domínio." },
+      { title: "Advogado Especialista em Direito e Regularização Fundiária | Dr. Gilson Carvalho" },
+      { name: "description", content: "Segurança jurídica para consolidar o seu direito de propriedade urbana e rural, titulação de terras e defesa possessória." },
+      { property: "og:title", content: "Advogado Especialista em Direito e Regularização Fundiária | Dr. Gilson Carvalho" },
+      { property: "og:description", content: "Segurança jurídica para consolidar o seu direito de propriedade urbana e rural, titulação de terras e defesa possessória." },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://gilsoncarvalho.com/og-gilson.jpg" },
       { name: "twitter:card", content: "summary_large_image" },

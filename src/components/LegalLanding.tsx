@@ -6,6 +6,7 @@ import logo from "@/assets/logo_gilson.png";
 import imgGilsonAuthority from "@/assets/fotogilson3.png";
 import { Button } from "@/components/ui/button";
 import { initAnalytics, trackEvent, trackPageView, trackWhatsApp } from "@/lib/analytics";
+import { getWhatsAppMessage } from "@/lib/whatsapp";
 
 const WHATSAPP = "5563984474070";
 const INSTAGRAM_URL = "https://instagram.com/gilsoncarvalho.adv";
@@ -83,6 +84,11 @@ export default function LegalLanding(p: LandingProps) {
     : PROPERTY_AUTHORITY_TEXT;
   const videoInstagramUrl =
     isPensaoEGuarda ? p.instagramLinks?.[0] ?? INSTAGRAM_URL : INSTAGRAM_URL;
+  const waLink = (fallbackMessage: string) => {
+    const pathname = typeof window !== "undefined" ? window.location.pathname : p.routePath;
+    const message = getWhatsAppMessage(pathname, fallbackMessage);
+    return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
+  };
 
   useEffect(() => {
     initAnalytics();
@@ -543,6 +549,9 @@ export default function LegalLanding(p: LandingProps) {
             </div>
             <h3 className="font-serif-luxe text-3xl md:text-4xl text-stone-50">Atuação em Tocantins e Rio de Janeiro</h3>
           </div>
+          <p className="mb-8 border border-gold/25 px-6 py-5 text-sm leading-relaxed text-stone-300" style={{ backgroundColor: "rgba(30,30,30,0.72)" }}>
+            Atendimento Nacional e Processo 100% Digital: Além das nossas sedes físicas no Rio de Janeiro (RJ) e em Gurupi (TO), atuamos estrategicamente em São Paulo (SP) e em todo o Brasil por meio de consultas por videoconferência e processos totalmente eletrônicos.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {

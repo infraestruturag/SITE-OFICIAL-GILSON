@@ -1,11 +1,11 @@
 // Shared JSON-LD LocalBusiness payload for all pages
 export const LOCAL_BUSINESS_JSONLD = {
   "@context": "https://schema.org",
-  "@type": ["LegalService", "Attorney"],
-  name: "Gilson Carvalho — Advocacia",
+  "@type": "LegalService",
+  name: "Dr. Gilson Carvalho Advocacia",
   legalName: "Gilson Carvalho Advocacia",
   description:
-    "Escritório de advocacia especializado em Direito de Família e Sucessões, com atuação em Gurupi/TO e em todo o Brasil.",
+    "Dr. Gilson Carvalho é Mestre em Direito, Professor Universitário, inscrito na OAB/TO 2.591 e na OAB/RJ 256.131. Advocacia estratégica com atuação em Gurupi/TO, Rio de Janeiro/RJ e em todo o Brasil.",
   image: "https://gilsoncarvalho.com/og-gilson.jpg",
   logo: "https://gilsoncarvalho.com/logo_gilson.png",
   url: "https://gilsoncarvalho.com",
@@ -36,9 +36,35 @@ export const LOCAL_BUSINESS_JSONLD = {
     streetAddress: "Av. Guanabara, nº 1669",
     addressLocality: "Gurupi",
     addressRegion: "TO",
-    postalCode: "77400-000",
+    postalCode: "77403-080",
     addressCountry: "BR",
   },
+  location: [
+    {
+      "@type": "Place",
+      name: "Matriz — Gurupi/TO",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Av. Guanabara, nº 1669, Centro",
+        addressLocality: "Gurupi",
+        addressRegion: "TO",
+        postalCode: "77403-080",
+        addressCountry: "BR",
+      },
+    },
+    {
+      "@type": "Place",
+      name: "Filial — Rio de Janeiro/RJ",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Av. Rio Branco, 131, 17º andar, Sala 1703, Centro",
+        addressLocality: "Rio de Janeiro",
+        addressRegion: "RJ",
+        postalCode: "20040-006",
+        addressCountry: "BR",
+      },
+    },
+  ],
   geo: {
     "@type": "GeoCoordinates",
     latitude: -11.7292,

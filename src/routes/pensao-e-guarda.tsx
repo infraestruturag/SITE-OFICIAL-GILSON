@@ -11,10 +11,10 @@ const CANONICAL = "https://gilsoncarvalho.com/pensao-e-guarda";
 export const Route = createFileRoute("/pensao-e-guarda")({
   head: () => ({
     meta: [
-      { title: "Guarda e Pensão Alimentícia — Gilson Carvalho Advocacia" },
-      { name: "description", content: "Garantia de direitos, regulamentação de visitas e revisão de pensão. Proteção absoluta do futuro dos seus filhos." },
-      { property: "og:title", content: "Guarda e Pensão — Gilson Carvalho Advocacia" },
-      { property: "og:description", content: "Proteção absoluta do bem-estar e do futuro dos seus filhos." },
+      { title: "Advogado Especialista em Pensão Alimentícia e Guarda | Dr. Gilson Carvalho" },
+      { name: "description", content: "Segurança jurídica na definição, revisão e execução de pensão alimentícia e regulamentação de guarda com foco na proteção familiar." },
+      { property: "og:title", content: "Advogado Especialista em Pensão Alimentícia e Guarda | Dr. Gilson Carvalho" },
+      { property: "og:description", content: "Segurança jurídica na definição, revisão e execução de pensão alimentícia e regulamentação de guarda com foco na proteção familiar." },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://gilsoncarvalho.com/og-gilson.jpg" },
       { name: "twitter:card", content: "summary_large_image" },

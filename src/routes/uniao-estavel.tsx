@@ -11,10 +11,10 @@ const CANONICAL = "https://gilsoncarvalho.com/uniao-estavel";
 export const Route = createFileRoute("/uniao-estavel")({
   head: () => ({
     meta: [
-      { title: "União Estável — Gilson Carvalho Advocacia" },
-      { name: "description", content: "Reconhecimento, dissolução e consultoria em contratos de união estável. Planejamento patrimonial seguro." },
-      { property: "og:title", content: "União Estável — Gilson Carvalho Advocacia" },
-      { property: "og:description", content: "Planejamento seguro para os seus próximos passos e para o seu patrimônio." },
+      { title: "Advogado Especialista em União Estável e Patrimônio | Dr. Gilson Carvalho" },
+      { name: "description", content: "Reconhecimento, dissolução e contrato de união estável com foco na proteção patrimonial e segurança jurídica do casal." },
+      { property: "og:title", content: "Advogado Especialista em União Estável e Patrimônio | Dr. Gilson Carvalho" },
+      { property: "og:description", content: "Reconhecimento, dissolução e contrato de união estável com foco na proteção patrimonial e segurança jurídica do casal." },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://gilsoncarvalho.com/og-gilson.jpg" },
       { name: "twitter:card", content: "summary_large_image" },

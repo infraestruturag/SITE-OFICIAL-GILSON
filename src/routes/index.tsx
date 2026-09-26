@@ -11,8 +11,9 @@ import {
 } from "@/components/ui/accordion";
 
 import logo from "@/assets/logo_gilson.png";
-import { LOCAL_BUSINESS_JSONLD } from "@/lib/seo";
+import { jsonLdScript, LOCAL_BUSINESS_JSONLD } from "@/lib/seo";
 import { initAnalytics, trackPageView, trackWhatsApp } from "@/lib/analytics";
+import { getWhatsAppMessage } from "@/lib/whatsapp";
 import imgGilson from "@/assets/gilsonfoto1.png";
 import imgGilson2 from "@/assets/fotogilson3.png";
 import imgEscritorio from "@/assets/escritorio.png";
@@ -24,10 +25,10 @@ const CANONICAL = "https://gilsoncarvalho.com/";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Gilson Carvalho — Advocacia | Direito de Família e Sucessões em Gurupi/TO" },
-      { name: "description", content: "Ciência jurídica avançada e advocacia sob medida para proteger o seu patrimônio e seus direitos. OAB/TO 2.591 · OAB/RJ 256.131." },
-      { property: "og:title", content: "Gilson Carvalho — Advocacia | Ciência Jurídica Avançada" },
-      { property: "og:description", content: "Advocacia sob medida em Direito de Família e Sucessões. Atendimento sigiloso em todo o Brasil." },
+      { title: "Dr. Gilson Carvalho | Advocacia Estratégica Patrimonial, Familiar e Imobiliária" },
+      { name: "description", content: "Mais de 20 anos de atuação jurídica com rigor técnico e sigilo absoluto. Escritórios em Gurupi (TO) e Rio de Janeiro (RJ). OAB/TO 2.591 | OAB/RJ 256.131." },
+      { property: "og:title", content: "Dr. Gilson Carvalho | Advocacia Estratégica Patrimonial, Familiar e Imobiliária" },
+      { property: "og:description", content: "Mais de 20 anos de atuação jurídica com rigor técnico e sigilo absoluto. Escritórios em Gurupi (TO) e Rio de Janeiro (RJ). OAB/TO 2.591 | OAB/RJ 256.131." },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://gilsoncarvalho.com/og-gilson.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -47,13 +48,14 @@ export const Route = createFileRoute("/")({
           publisher: { ...LOCAL_BUSINESS_JSONLD, "@context": undefined },
         }),
       },
+      jsonLdScript(),
     ],
   }),
   component: Index,
 });
 
 const WHATSAPP = "5563984474070";
-const waLink = (msg = "Olá Dr. Gilson, vim através do site e gostaria de falar sobre atendimento jurídico.") =>
+const waLink = (msg = getWhatsAppMessage()) =>
   `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
 
 const INSTAGRAM_URL = "https://instagram.com/gilsoncarvalho.adv";
@@ -651,6 +653,9 @@ function Index() {
             </div>
             <h2 className="font-serif-luxe text-4xl md:text-5xl text-stone-50 mb-3">Nossos Escritórios</h2>
             <p className="text-stone-400 text-sm md:text-base mb-8">Atuação em Tocantins e Rio de Janeiro</p>
+            <p className="mb-8 border border-gold/25 px-6 py-5 text-sm leading-relaxed text-stone-300 text-left" style={{ backgroundColor: "rgba(30,30,30,0.72)" }}>
+              Atendimento Nacional e Processo 100% Digital: Além das nossas sedes físicas no Rio de Janeiro (RJ) e em Gurupi (TO), atuamos estrategicamente em São Paulo (SP) e em todo o Brasil por meio de consultas por videoconferência e processos totalmente eletrônicos.
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
               {[
                 {

@@ -11,10 +11,10 @@ const CANONICAL = "https://gilsoncarvalho.com/inventario";
 export const Route = createFileRoute("/inventario")({
   head: () => ({
     meta: [
-      { title: "Inventário e Partilha — Gilson Carvalho Advocacia" },
-      { name: "description", content: "Resolução rápida de partilhas, planejamento tributário e mediação entre herdeiros." },
-      { property: "og:title", content: "Inventário e Partilha — Gilson Carvalho Advocacia" },
-      { property: "og:description", content: "O valor econômico não deve prevalecer sobre os laços afetivos." },
+      { title: "Advogado Especialista em Inventário e Sucessões | Dr. Gilson Carvalho" },
+      { name: "description", content: "Condução ágil de inventário judicial e extrajudicial, partilha de herança, proteção de bens e planejamento sucessório." },
+      { property: "og:title", content: "Advogado Especialista em Inventário e Sucessões | Dr. Gilson Carvalho" },
+      { property: "og:description", content: "Condução ágil de inventário judicial e extrajudicial, partilha de herança, proteção de bens e planejamento sucessório." },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://gilsoncarvalho.com/og-gilson.jpg" },
       { name: "twitter:card", content: "summary_large_image" },

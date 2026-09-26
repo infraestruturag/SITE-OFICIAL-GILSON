@@ -13,9 +13,10 @@ import { toast } from "sonner";
 import logo from "@/assets/logo_gilson.png";
 import avatar from "@/assets/fotogilsonlink.png";
 import { trackWhatsApp, trackEvent } from "@/lib/analytics";
+import { getWhatsAppMessage } from "@/lib/whatsapp";
 
 const WHATSAPP = "5563984474070";
-const waMessage = "Olá Dr. Gilson, vim através do site e gostaria de falar sobre atendimento jurídico.";
+const waMessage = getWhatsAppMessage("/bio");
 const waLink = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`;
 const INSTAGRAM_URL = "https://www.instagram.com/gilsoncarvalho.adv/";
 const MAPS_URL = "https://maps.google.com/?q=Av.+Guanabara,+1669,+Centro+-+Gurupi,+TO";
@@ -28,18 +29,18 @@ const handleWhatsAppClick = (label: string) => {
 export const Route = createFileRoute("/bio")({
   head: () => ({
     meta: [
-      { title: "Dr. Gilson Carvalho | Cartão Virtual e Canais de Atendimento" },
+      { title: "Canais Oficiais e Atendimento | Dr. Gilson Carvalho" },
       {
         name: "description",
         content:
-          "Acesse rapidamente nossos canais oficiais de atendimento, localização do escritório e agendamento de consultas jurídicas.",
+          "Acesse os canais diretos de atendimento, áreas de especialidade e localização dos escritórios do Dr. Gilson Carvalho (TO e RJ).",
       },
       { name: "robots", content: "index, follow" },
-      { property: "og:title", content: "Dr. Gilson Carvalho | Cartão Virtual e Canais de Atendimento" },
+      { property: "og:title", content: "Canais Oficiais e Atendimento | Dr. Gilson Carvalho" },
       {
         property: "og:description",
         content:
-          "Acesse rapidamente nossos canais oficiais de atendimento, localização do escritório e agendamento de consultas jurídicas.",
+          "Acesse os canais diretos de atendimento, áreas de especialidade e localização dos escritórios do Dr. Gilson Carvalho (TO e RJ).",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://gilsoncarvalho.com/bio" },

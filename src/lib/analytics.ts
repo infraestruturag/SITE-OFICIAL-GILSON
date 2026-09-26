@@ -41,8 +41,15 @@ export function trackEvent(name: string, params: Record<string, unknown> = {}) {
   window.dataLayer?.push({ event: name, ...params });
 }
 
-export const trackWhatsApp = (local: string) =>
+export const trackWhatsApp = (local: string) => {
   trackEvent("click_whatsapp", { local, method: "whatsapp" });
+  if (typeof window === "undefined") return;
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "clique_whatsapp",
+    pagina_origem: window.location.pathname,
+  });
+};
 
 export const trackLead = (servico: string) =>
   trackEvent("generate_lead", { servico, currency: "BRL", value: 1 });

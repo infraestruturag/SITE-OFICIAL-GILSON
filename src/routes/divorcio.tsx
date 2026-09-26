@@ -11,10 +11,10 @@ const CANONICAL = "https://gilsoncarvalho.com/divorcio";
 export const Route = createFileRoute("/divorcio")({
   head: () => ({
     meta: [
-      { title: "Divórcio Rápido e Justo — Gilson Carvalho Advocacia" },
-      { name: "description", content: "Em um momento de decisões importantes, orientação jurídica adequada faz toda a diferença. Atuamos com discrição, segurança e atenção à proteção dos seus direitos e do seu patrimônio. OAB/TO e OAB/RJ." },
-      { property: "og:title", content: "Divórcio — Gilson Carvalho Advocacia" },
-      { property: "og:description", content: "Agilidade, discrição e proteção patrimonial em seu processo de separação." },
+      { title: "Advogado Especialista em Divórcio e Partilha de Bens | Dr. Gilson Carvalho" },
+      { name: "description", content: "Atuação estratégica e sigilosa em divórcio consensual ou litigioso, blindagem patrimonial e partilha de bens de alta complexidade." },
+      { property: "og:title", content: "Advogado Especialista em Divórcio e Partilha de Bens | Dr. Gilson Carvalho" },
+      { property: "og:description", content: "Atuação estratégica e sigilosa em divórcio consensual ou litigioso, blindagem patrimonial e partilha de bens de alta complexidade." },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://gilsoncarvalho.com/og-gilson.jpg" },
       { name: "twitter:card", content: "summary_large_image" },

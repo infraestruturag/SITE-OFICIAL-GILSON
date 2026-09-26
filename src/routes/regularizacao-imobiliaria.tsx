@@ -11,10 +11,10 @@ const CANONICAL = "https://gilsoncarvalho.com/regularizacao-imobiliaria";
 export const Route = createFileRoute("/regularizacao-imobiliaria")({
   head: () => ({
     meta: [
-      { title: "Regularização Imobiliária — Gilson Carvalho Advocacia" },
-      { name: "description", content: "Escrituras, registros, legalização de posse e documentação de imóveis urbanos. OAB/TO e OAB/RJ." },
-      { property: "og:title", content: "Regularização Imobiliária — Gilson Carvalho Advocacia" },
-      { property: "og:description", content: "Seu imóvel só é realmente seu quando os documentos comprovam." },
+      { title: "Advogado Especialista em Regularização Imobiliária | Dr. Gilson Carvalho" },
+      { name: "description", content: "Assessoria jurídica completa para regularização de imóveis urbanos, escrituras, usucapião, adjudicação compulsória e destravamento de matrículas." },
+      { property: "og:title", content: "Advogado Especialista em Regularização Imobiliária | Dr. Gilson Carvalho" },
+      { property: "og:description", content: "Assessoria jurídica completa para regularização de imóveis urbanos, escrituras, usucapião, adjudicação compulsória e destravamento de matrículas." },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://gilsoncarvalho.com/og-gilson.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
