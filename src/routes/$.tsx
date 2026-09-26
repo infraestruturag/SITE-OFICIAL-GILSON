@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { FaWhatsapp } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Home, Scale, Users, FileText, HeartHandshake } from "lucide-react";
@@ -18,6 +18,9 @@ const quickLinks = [
 ];
 
 export const Route = createFileRoute("/$")({
+  beforeLoad: () => {
+    throw redirect({ to: "/" });
+  },
   head: () => ({
     meta: [
       { title: "Endereço Não Encontrado — Gilson Carvalho Advocacia" },

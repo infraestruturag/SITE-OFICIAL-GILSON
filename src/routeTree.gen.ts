@@ -16,6 +16,7 @@ import { Route as RegularizacaoFundiariaRouteImport } from './routes/regularizac
 import { Route as PrevidenciarioRouteImport } from './routes/previdenciario'
 import { Route as PensaoEGuardaRouteImport } from './routes/pensao-e-guarda'
 import { Route as PensaoRouteImport } from './routes/pensao'
+import { Route as LinksRouteImport } from './routes/links'
 import { Route as InventarioRouteImport } from './routes/inventario'
 import { Route as ImobiliarioRouteImport } from './routes/imobiliario'
 import { Route as DivorcioRouteImport } from './routes/divorcio'
@@ -60,6 +61,11 @@ const PensaoEGuardaRoute = PensaoEGuardaRouteImport.update({
 const PensaoRoute = PensaoRouteImport.update({
   id: '/pensao',
   path: '/pensao',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LinksRoute = LinksRouteImport.update({
+  id: '/links',
+  path: '/links',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InventarioRoute = InventarioRouteImport.update({
@@ -118,6 +124,7 @@ export interface FileRoutesByFullPath {
   '/divorcio': typeof DivorcioRoute
   '/imobiliario': typeof ImobiliarioRoute
   '/inventario': typeof InventarioRoute
+  '/links': typeof LinksRoute
   '/pensao': typeof PensaoRoute
   '/pensao-e-guarda': typeof PensaoEGuardaRoute
   '/previdenciario': typeof PrevidenciarioRoute
@@ -136,6 +143,7 @@ export interface FileRoutesByTo {
   '/divorcio': typeof DivorcioRoute
   '/imobiliario': typeof ImobiliarioRoute
   '/inventario': typeof InventarioRoute
+  '/links': typeof LinksRoute
   '/pensao': typeof PensaoRoute
   '/pensao-e-guarda': typeof PensaoEGuardaRoute
   '/previdenciario': typeof PrevidenciarioRoute
@@ -155,6 +163,7 @@ export interface FileRoutesById {
   '/divorcio': typeof DivorcioRoute
   '/imobiliario': typeof ImobiliarioRoute
   '/inventario': typeof InventarioRoute
+  '/links': typeof LinksRoute
   '/pensao': typeof PensaoRoute
   '/pensao-e-guarda': typeof PensaoEGuardaRoute
   '/previdenciario': typeof PrevidenciarioRoute
@@ -175,6 +184,7 @@ export interface FileRouteTypes {
     | '/divorcio'
     | '/imobiliario'
     | '/inventario'
+    | '/links'
     | '/pensao'
     | '/pensao-e-guarda'
     | '/previdenciario'
@@ -193,6 +203,7 @@ export interface FileRouteTypes {
     | '/divorcio'
     | '/imobiliario'
     | '/inventario'
+    | '/links'
     | '/pensao'
     | '/pensao-e-guarda'
     | '/previdenciario'
@@ -211,6 +222,7 @@ export interface FileRouteTypes {
     | '/divorcio'
     | '/imobiliario'
     | '/inventario'
+    | '/links'
     | '/pensao'
     | '/pensao-e-guarda'
     | '/previdenciario'
@@ -230,6 +242,7 @@ export interface RootRouteChildren {
   DivorcioRoute: typeof DivorcioRoute
   ImobiliarioRoute: typeof ImobiliarioRoute
   InventarioRoute: typeof InventarioRoute
+  LinksRoute: typeof LinksRoute
   PensaoRoute: typeof PensaoRoute
   PensaoEGuardaRoute: typeof PensaoEGuardaRoute
   PrevidenciarioRoute: typeof PrevidenciarioRoute
@@ -288,6 +301,13 @@ declare module '@tanstack/react-router' {
       path: '/pensao'
       fullPath: '/pensao'
       preLoaderRoute: typeof PensaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/links': {
+      id: '/links'
+      path: '/links'
+      fullPath: '/links'
+      preLoaderRoute: typeof LinksRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/inventario': {
@@ -366,6 +386,7 @@ const rootRouteChildren: RootRouteChildren = {
   DivorcioRoute: DivorcioRoute,
   ImobiliarioRoute: ImobiliarioRoute,
   InventarioRoute: InventarioRoute,
+  LinksRoute: LinksRoute,
   PensaoRoute: PensaoRoute,
   PensaoEGuardaRoute: PensaoEGuardaRoute,
   PrevidenciarioRoute: PrevidenciarioRoute,
