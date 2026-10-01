@@ -18,7 +18,35 @@ const quickLinks = [
 ];
 
 export const Route = createFileRoute("/$")({
-  beforeLoad: () => {
+  beforeLoad: ({ location }) => {
+    const pathname = location.pathname.toLowerCase();
+
+    if (pathname.includes("divorci")) {
+      throw redirect({ to: "/divorcio" });
+    }
+    if (pathname.includes("pensao") || pathname.includes("guarda")) {
+      throw redirect({ to: "/pensao-e-guarda" });
+    }
+    if (
+      pathname.includes("inventari") ||
+      pathname.includes("sucesso") ||
+      pathname.includes("heranca")
+    ) {
+      throw redirect({ to: "/inventario" });
+    }
+    if (pathname.includes("uniao") || pathname.includes("estavel")) {
+      throw redirect({ to: "/uniao-estavel" });
+    }
+    if (pathname.includes("imobiliaria") || pathname.includes("imovel")) {
+      throw redirect({ to: "/regularizacao-imobiliaria" });
+    }
+    if (pathname.includes("fundiari") || pathname.includes("terra")) {
+      throw redirect({ to: "/regularizacao-fundiaria" });
+    }
+    if (pathname.includes("bio") || pathname.includes("link")) {
+      throw redirect({ to: "/bio" });
+    }
+
     throw redirect({ to: "/" });
   },
   head: () => ({

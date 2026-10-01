@@ -289,8 +289,8 @@ function LinksPage() {
           transition={{ duration: 0.5, delay: 0.29 }}
           className="mt-5 text-stone-300 text-sm leading-relaxed max-w-sm"
         >
-          Advogado especialista em Direito de Família e Sucessões. Atuação estratégica, ética e
-          resultados seguros há mais de 20 anos.
+          Mestre em Direito com mais de 20 anos de atuação ética e estratégica. 
+              Especialista em Direito Civil, Família, Sucessões, Imobiliário e Fundiário.
         </motion.p>
 
         <div className="mt-6">

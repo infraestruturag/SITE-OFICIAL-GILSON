@@ -305,7 +305,7 @@ function Index() {
               {[
                 "Planejamento Sucessório", "Divórcio e Partilha", "Guarda e Pensão",
                 "Defesa de Direitos", "Advocacia de Excelência", "Pareceres Jurídicos",
-                "Atendimento Nacional", "Tradição e Resultados",
+                "Atendimento Nacional", "Tradição e Estratégia",
               ].map((t) => (
                 <span key={t + i} className="flex items-center gap-8 pr-8">
                   <span className="text-xs md:text-sm tracking-[0.3em] uppercase text-stone-100">{t}</span>
@@ -318,7 +318,7 @@ function Index() {
       </div>
 
 
-      {/* TRADIÇÃO ÉTICA RESULTADO */}
+      {/* TRADIÇÃO ÉTICA E ESTRATÉGIA */}
       <section id="sobre" className="relative py-28 lg:py-36" style={{ backgroundColor: "#2b2b2b" }}>
         <div className="absolute inset-0 opacity-[0.04] bg-cover bg-center" style={{ backgroundImage: `url(${bgMarble})` }} />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
@@ -328,7 +328,7 @@ function Index() {
               <span className="text-xs tracking-[0.3em] uppercase text-gold">Nossa Essência</span>
               <div className="w-16 h-px bg-gold" />
             </div>
-            <h2 className="font-serif-luxe text-5xl md:text-6xl text-stone-50">Tradição, Ética e Resultado</h2>
+            <h2 className="font-serif-luxe text-5xl md:text-6xl text-stone-50">Tradição, Ética e Estratégia</h2>
           </div>
 
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -757,7 +757,7 @@ function Index() {
           </div>
           <div className="border-t border-white/5 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-xs text-stone-500">© 2026 Gilson Carvalho — Advocacia. Todos os direitos reservados.</p>
-            <p className="text-[10px] tracking-[0.3em] uppercase text-gold">Excelência • Ética • Resultado</p>
+            <p className="text-[10px] tracking-[0.3em] uppercase text-gold">Excelência • Ética • Estratégia</p>
           </div>
         </div>
       </footer>
