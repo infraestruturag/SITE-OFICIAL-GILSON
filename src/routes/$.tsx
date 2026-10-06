@@ -37,7 +37,10 @@ export const Route = createFileRoute("/$")({
     if (pathname.includes("uniao") || pathname.includes("estavel")) {
       throw redirect({ to: "/uniao-estavel" });
     }
-    if (pathname.includes("imobiliaria") || pathname.includes("imovel")) {
+    if (pathname.includes("direito-fundiari")) {
+      throw redirect({ to: "/direito-fundiario" });
+    }
+    if (pathname.includes("imobiliari") || pathname.includes("imovel")) {
       throw redirect({ to: "/regularizacao-imobiliaria" });
     }
     if (pathname.includes("fundiari") || pathname.includes("terra")) {

@@ -14,6 +14,11 @@ import logo from "@/assets/logo_gilson.png";
 import avatar from "@/assets/fotogilsonlink.png";
 import { trackWhatsApp, trackEvent } from "@/lib/analytics";
 import { getWhatsAppMessage } from "@/lib/whatsapp";
+import {
+  GILSON_FULL_NAME,
+  GILSON_OFFICIAL_CREDENTIALS,
+  GILSON_OAB_REGISTRATIONS,
+} from "@/lib/profile";
 
 const WHATSAPP = "5563984474070";
 const waMessage = getWhatsAppMessage("/bio");
@@ -29,18 +34,18 @@ const handleWhatsAppClick = (label: string) => {
 export const Route = createFileRoute("/bio")({
   head: () => ({
     meta: [
-      { title: "Canais Oficiais e Atendimento | Dr. Gilson Carvalho" },
+      { title: "Gilson Ribeiro Carvalho Filho | Formação Acadêmica e Canais Oficiais" },
       {
         name: "description",
         content:
-          "Acesse os canais diretos de atendimento, áreas de especialidade e localização dos escritórios do Dr. Gilson Carvalho (TO e RJ).",
+          "Formação oficial de Gilson Ribeiro Carvalho Filho: Mestre em Direito pela UCP, MBA em Gestão na Advocacia e especializações em Família, Sucessões, Direito Civil e Processual.",
       },
       { name: "robots", content: "index, follow" },
-      { property: "og:title", content: "Canais Oficiais e Atendimento | Dr. Gilson Carvalho" },
+      { property: "og:title", content: "Gilson Ribeiro Carvalho Filho | Formação Acadêmica e Canais Oficiais" },
       {
         property: "og:description",
         content:
-          "Acesse os canais diretos de atendimento, áreas de especialidade e localização dos escritórios do Dr. Gilson Carvalho (TO e RJ).",
+          "Formação oficial de Gilson Ribeiro Carvalho Filho: Mestre em Direito pela UCP, MBA em Gestão na Advocacia e especializações em Família, Sucessões, Direito Civil e Processual.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://gilsoncarvalho.com/bio" },
@@ -187,8 +192,8 @@ function ShareButton() {
     trackEvent("click_link_share", { local: "links" });
     const url = typeof window !== "undefined" ? window.location.href : "";
     const data = {
-      title: "Dr. Gilson Carvalho — Advocacia",
-      text: "Canais oficiais de atendimento do Dr. Gilson Carvalho.",
+      title: `Dr. ${GILSON_FULL_NAME} — Advocacia`,
+      text: `Canais oficiais de atendimento do Dr. ${GILSON_FULL_NAME}.`,
       url,
     };
     try {
@@ -233,7 +238,7 @@ function LinksPage() {
       />
       <div className="noise-overlay" aria-hidden="true" />
 
-      <div className="relative z-10 w-full max-w-md mx-auto flex flex-col items-center text-center">
+      <div className="relative z-10 w-full max-w-xl mx-auto flex flex-col items-center text-center">
         {/* Avatar */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -251,7 +256,7 @@ function LinksPage() {
           >
             <img
               src={avatar}
-              alt="Dr. Gilson Carvalho"
+              alt={`Dr. ${GILSON_FULL_NAME}`}
               width={160}
               height={160}
               decoding="async"
@@ -268,30 +273,42 @@ function LinksPage() {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="mt-6 font-serif-luxe text-3xl sm:text-4xl text-stone-50"
         >
-          Gilson Carvalho
+          {GILSON_FULL_NAME}
         </motion.h1>
-        <motion.div
+        <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.22 }}
-          className="mt-3 flex flex-wrap items-center justify-center gap-2"
+          className="mt-3 inline-flex items-center justify-center border border-gold/50 bg-gold/[0.08] px-3 py-1.5 text-xs tracking-wide text-gold"
         >
-          <span className="text-[10px] tracking-[0.22em] uppercase text-gold border border-gold/40 px-2.5 py-0.5">
-            OAB/TO 2.591
-          </span>
-          <span className="text-[10px] tracking-[0.22em] uppercase text-gold border border-gold/40 px-2.5 py-0.5">
-            OAB/RJ 256.131
-          </span>
-        </motion.div>
+          {GILSON_OAB_REGISTRATIONS}
+        </motion.p>
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.29 }}
           className="mt-5 text-stone-300 text-sm leading-relaxed max-w-sm"
         >
-          Mestre em Direito com mais de 20 anos de atuação ética e estratégica. 
-              Especialista em Direito Civil, Família, Sucessões, Imobiliário e Fundiário.
+          Advogado com formação acadêmica em Direito, gestão na advocacia, Direito das Famílias
+          e Sucessões, e Direito Civil e Processual.
         </motion.p>
+
+        <section aria-labelledby="academic-credentials-title" className="mt-8 w-full text-left">
+          <h2
+            id="academic-credentials-title"
+            className="text-xs tracking-[0.22em] uppercase text-gold text-center mb-4"
+          >
+            Formação Acadêmica
+          </h2>
+          <ul className="space-y-3 border border-gold/25 bg-white/[0.03] p-5 sm:p-6">
+            {GILSON_OFFICIAL_CREDENTIALS.map((credential) => (
+              <li key={credential} className="flex items-start gap-3 text-stone-200 text-sm leading-relaxed">
+                <span className="text-gold shrink-0">•</span>
+                <span>{credential}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
 
         <div className="mt-6">
           <ShareButton />
@@ -314,7 +331,7 @@ function LinksPage() {
         >
           <img src={logo} alt="Gilson Carvalho Advocacia" width={170} height={40} loading="lazy" decoding="async" className="h-10 w-auto opacity-80" />
           <p className="text-[11px] tracking-[0.18em] uppercase text-stone-400 text-center leading-relaxed">
-            Dr. Gilson Carvalho — OAB/TO 2.591 · OAB/RJ 256.131
+            Dr. {GILSON_FULL_NAME} — {GILSON_OAB_REGISTRATIONS}
           </p>
         </motion.div>
       </div>

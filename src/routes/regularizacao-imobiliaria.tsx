@@ -43,7 +43,7 @@ function RegularizacaoImobiliariaPage() {
       videoFile="regularizacao-imobiliaria.mp4"
       authorityTitle="Quem vai proteger o seu patrimônio e os seus direitos?"
       footerSubtitle="Direito Imobiliário e Fundiário · Atuação técnica e sigilosa."
-      authorityText="Gilson Carvalho alia mais de 20 anos de experiência jurídica à atuação estratégica em Direito Imobiliário e Fundiário. Com vasta expertise também em Família e Sucessões, garante a segurança patrimonial e a regularização dos seus bens com total discrição e precisão técnica."
+      authorityText="Na atuação em Direito Imobiliário, aplica rigor técnico e estratégia jurídica à regularização de bens e à proteção da propriedade e do patrimônio."
       instagramLinks={[
         "https://www.instagram.com/p/DErrVxfzoHX/?stkn=dDNkM3hwbzVwNW1l",
         "https://www.instagram.com/p/DEcTdy4s5eq/?stkn=MWZlZWtvb3VnYjBiYQ==",

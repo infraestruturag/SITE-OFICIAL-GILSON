@@ -43,7 +43,7 @@ function PensaoGuardaPage() {
       videoFile="pensao-e-guarda.mp4"
       authorityTitle="Quem vai defender os direitos da sua família?"
       footerSubtitle="Direito de Família e Sucessões · Atendimento sigiloso."
-      authorityText="Gilson Carvalho é especialista em Direito de Família e Sucessões com mais de 20 anos de atuação. Dedica-se a proteger o patrimônio e garantir a paz em momentos de transição familiar, oferecendo excelência jurídica e sigilo absoluto."
+      authorityText="Na atuação em Direito de Família, oferece orientação estratégica para questões de guarda e alimentos, com atenção à segurança jurídica e aos direitos familiares."
       instagramLinks={[
         "https://www.instagram.com/gilsoncarvalho.adv/p/DTZDVpqjK3C/",
         "https://www.instagram.com/gilsoncarvalho.adv/p/DS517c6kkCw/",

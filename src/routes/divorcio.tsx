@@ -43,7 +43,7 @@ function DivorcioPage() {
       videoFile="divorcio.mp4"
       authorityTitle="Quem vai defender os direitos da sua família?"
       footerSubtitle="Direito de Família e Sucessões · Atendimento sigiloso."
-      authorityText="Gilson Carvalho é especialista em Direito de Família e Sucessões com mais de 20 anos de atuação. Dedica-se a proteger o patrimônio e garantir a paz em momentos de transição familiar, oferecendo excelência jurídica e sigilo absoluto."
+      authorityText="Na atuação em Direito de Família, oferece condução jurídica estratégica para proteger os direitos e o patrimônio dos clientes durante o divórcio e a partilha."
       instagramLinks={[
         "https://www.instagram.com/gilsoncarvalho.adv/p/DPTzaueAcUj/",
         "https://www.instagram.com/p/DTbMkXKEvGL/?stkn=MXUxejEyOTM5dHAwZg==",

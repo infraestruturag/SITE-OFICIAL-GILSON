@@ -7,6 +7,11 @@ import imgGilsonAuthority from "@/assets/fotogilson3.png";
 import { Button } from "@/components/ui/button";
 import { initAnalytics, trackEvent, trackPageView, trackWhatsApp } from "@/lib/analytics";
 import { getWhatsAppMessage } from "@/lib/whatsapp";
+import {
+  GILSON_FULL_NAME,
+  GILSON_OFFICIAL_CREDENTIALS,
+  GILSON_OAB_REGISTRATIONS,
+} from "@/lib/profile";
 
 const WHATSAPP = "5563984474070";
 const INSTAGRAM_URL = "https://instagram.com/gilsoncarvalho.adv";
@@ -30,9 +35,9 @@ export const waLink = (msg: string) =>
 const PAIN_ICONS = [ShieldAlert, Scale, FileText, Gavel, Lock];
 const FAMILY_SUCCESSION_ROUTES = new Set(["/divorcio", "/pensao-e-guarda", "/uniao-estavel", "/inventario"]);
 const FAMILY_AUTHORITY_TEXT =
-  "Mestre em Direito, Especialista em Direito Civil, de Família e Sucessões, e com MBA em Gestão na Advocacia, o Dr. Gilson Carvalho soma mais de 20 anos de experiência. Atua com excelência estratégica para proteger o patrimônio e garantir a segurança jurídica em momentos de transição familiar, sempre com sigilo absoluto.";
+  "Na atuação em Direito de Família e Sucessões, combina conhecimento jurídico e condução estratégica para proteger direitos e patrimônio em momentos decisivos.";
 const PROPERTY_AUTHORITY_TEXT =
-  "Mestre em Direito, Especialista em Direito Civil e com MBA em Gestão na Advocacia, o Dr. Gilson Carvalho soma mais de 20 anos de experiência. Atua com rigor técnico e excelência estratégica na defesa da propriedade, garantindo a regularização e a proteção rigorosa do seu patrimônio imobiliário e fundiário.";
+  "Nas áreas Imobiliária e Fundiária, atua com rigor técnico na defesa da propriedade, regularização de bens e segurança patrimonial.";
 
 const reveal = {
   initial: { opacity: 0, y: 24 },
@@ -79,9 +84,11 @@ export default function LegalLanding(p: LandingProps) {
   const galleryPrefix = p.routePath?.replace(/^\//, "") ?? "divorcio";
   const galleryImages = Array.from({ length: 6 }, (_, index) => `/${galleryPrefix}${index + 1}.png`);
   const isPensaoEGuarda = p.routePath === "/pensao-e-guarda";
-  const authorityText = FAMILY_SUCCESSION_ROUTES.has(p.routePath ?? "")
-    ? FAMILY_AUTHORITY_TEXT
-    : PROPERTY_AUTHORITY_TEXT;
+  const authorityText =
+    p.authorityText ??
+    (FAMILY_SUCCESSION_ROUTES.has(p.routePath ?? "")
+      ? FAMILY_AUTHORITY_TEXT
+      : PROPERTY_AUTHORITY_TEXT);
   const videoInstagramUrl =
     isPensaoEGuarda ? p.instagramLinks?.[0] ?? INSTAGRAM_URL : INSTAGRAM_URL;
   const waLink = (fallbackMessage: string) => {
@@ -286,7 +293,7 @@ export default function LegalLanding(p: LandingProps) {
               <div style={{ border: "1px solid #C8A84B" }} className="p-[2px]">
                 <img
                   src={imgGilsonAuthority}
-                  alt="Dr. Gilson Carvalho — Advogado especialista em Direito de Família e Sucessões"
+                  alt={`Dr. ${GILSON_FULL_NAME} — Advogado`}
                   width={450}
                   height={563}
                   loading="lazy"
@@ -297,18 +304,21 @@ export default function LegalLanding(p: LandingProps) {
               </div>
             </div>
             <div>
-              <span className="inline-block text-[10px] tracking-[0.35em] uppercase text-gold border border-gold/40 px-4 py-2 mb-6">Dr. Gilson Carvalho</span>
+              <span className="inline-block text-[10px] tracking-[0.25em] uppercase text-gold border border-gold/40 px-4 py-2 mb-6">Dr. {GILSON_FULL_NAME}</span>
+              <p className="w-fit text-xs sm:text-sm tracking-wide text-gold border border-gold/50 bg-gold/[0.08] px-4 py-2 mb-6">
+                {GILSON_OAB_REGISTRATIONS}
+              </p>
               <p className="text-stone-200 text-lg leading-relaxed mb-6">
                 {authorityText}
               </p>
-              <div className="flex flex-wrap items-center gap-3 mb-8">
-                <span className="text-[10px] tracking-[0.25em] uppercase text-gold border border-gold/40 px-3 py-1.5">OAB/TO 2.591</span>
-                <span className="text-[10px] tracking-[0.25em] uppercase text-gold border border-gold/40 px-3 py-1.5">OAB/RJ 256.131</span>
-              </div>
-              <ul className="space-y-3">
-                {["20+ anos de atuação estratégica", "Mestre em Direito · MBA em Gestão", "Atendimento sigiloso em todo o Brasil"].map((it) => (
-                  <li key={it} className="flex items-center gap-3 text-stone-200">
-                    <Check size={16} className="text-gold shrink-0" /> {it}
+              <h3 className="text-xs tracking-[0.25em] uppercase text-gold mb-4">
+                Formação Acadêmica
+              </h3>
+              <ul className="space-y-3 mb-8">
+                {GILSON_OFFICIAL_CREDENTIALS.map((credential) => (
+                  <li key={credential} className="flex items-start gap-3 text-stone-200 text-sm leading-relaxed">
+                    <Check size={16} className="text-gold shrink-0 mt-0.5" />
+                    <span>{credential}</span>
                   </li>
                 ))}
               </ul>

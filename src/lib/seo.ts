@@ -1,3 +1,5 @@
+import { GILSON_FULL_NAME } from "@/lib/profile";
+
 // Shared JSON-LD LocalBusiness payload for all pages
 export const LOCAL_BUSINESS_JSONLD = {
   "@context": "https://schema.org",
@@ -5,7 +7,7 @@ export const LOCAL_BUSINESS_JSONLD = {
   name: "Dr. Gilson Carvalho Advocacia",
   legalName: "Gilson Carvalho Advocacia",
   description:
-    "Dr. Gilson Carvalho é Mestre em Direito, Professor Universitário, inscrito na OAB/TO 2.591 e na OAB/RJ 256.131. Advocacia estratégica com atuação em Gurupi/TO, Rio de Janeiro/RJ e em todo o Brasil.",
+    "Gilson Ribeiro Carvalho Filho é advogado, Mestre em Direito pela UCP, possui MBA em Gestão na Advocacia pelo IPOG e especializações em Direito das Famílias e Sucessões e em Direito Civil e Processual.",
   image: "https://gilsoncarvalho.com/og-gilson.jpg",
   logo: "https://gilsoncarvalho.com/logo_gilson.png",
   url: "https://gilsoncarvalho.com",
@@ -15,7 +17,7 @@ export const LOCAL_BUSINESS_JSONLD = {
   areaServed: "BR",
   founder: {
     "@type": "Person",
-    name: "Gilson Carvalho",
+    name: GILSON_FULL_NAME,
     jobTitle: "Advogado",
     identifier: ["OAB/TO 2.591", "OAB/RJ 256.131"],
     memberOf: {

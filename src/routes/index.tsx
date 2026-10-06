@@ -14,6 +14,7 @@ import logo from "@/assets/logo_gilson.png";
 import { jsonLdScript, LOCAL_BUSINESS_JSONLD } from "@/lib/seo";
 import { initAnalytics, trackPageView, trackWhatsApp } from "@/lib/analytics";
 import { getWhatsAppMessage } from "@/lib/whatsapp";
+import { GILSON_FULL_NAME, GILSON_OFFICIAL_CREDENTIALS } from "@/lib/profile";
 import imgGilson from "@/assets/gilsonfoto1.png";
 import imgGilson2 from "@/assets/fotogilson3.png";
 import imgEscritorio from "@/assets/escritorio.png";
@@ -26,9 +27,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Dr. Gilson Carvalho | Advocacia Estratégica Patrimonial, Familiar e Imobiliária" },
-      { name: "description", content: "Mais de 20 anos de atuação jurídica com rigor técnico e sigilo absoluto. Escritórios em Gurupi (TO) e Rio de Janeiro (RJ). OAB/TO 2.591 | OAB/RJ 256.131." },
+      { name: "description", content: "Gilson Ribeiro Carvalho Filho é advogado, Mestre em Direito pela UCP e especialista em Direito das Famílias e Sucessões, Direito Civil e Processual. Escritórios em Gurupi/TO e Rio de Janeiro/RJ." },
       { property: "og:title", content: "Dr. Gilson Carvalho | Advocacia Estratégica Patrimonial, Familiar e Imobiliária" },
-      { property: "og:description", content: "Mais de 20 anos de atuação jurídica com rigor técnico e sigilo absoluto. Escritórios em Gurupi (TO) e Rio de Janeiro (RJ). OAB/TO 2.591 | OAB/RJ 256.131." },
+      { property: "og:description", content: "Gilson Ribeiro Carvalho Filho é advogado, Mestre em Direito pela UCP e especialista em Direito das Famílias e Sucessões, Direito Civil e Processual. Escritórios em Gurupi/TO e Rio de Janeiro/RJ." },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://gilsoncarvalho.com/og-gilson.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -234,7 +235,7 @@ function Index() {
         {/* DESKTOP FULLSCREEN PORTRAIT */}
         <motion.img
           src={imgGilson}
-          alt="Dr. Gilson Carvalho"
+          alt={`Dr. ${GILSON_FULL_NAME}`}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: "easeOut" }}
@@ -257,14 +258,14 @@ function Index() {
             </h1>
             <div className="mt-8 md:mt-10 space-y-3">
               <p className="font-serif-luxe text-xl sm:text-2xl md:text-3xl text-stone-100 leading-snug">
-                Dr. Gilson Carvalho
+                Dr. {GILSON_FULL_NAME}
               </p>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] sm:text-xs tracking-[0.25em] uppercase">
                 <span className="text-gold border border-gold/40 px-3 py-1">OAB/TO 2.591</span>
                 <span className="text-gold border border-gold/40 px-3 py-1">OAB/RJ 256.131</span>
               </div>
               <p className="text-xs md:text-sm tracking-[0.25em] uppercase text-stone-400 pt-1">
-                Professor Universitário · Mestre & Especialista
+                Advogado · Mestre em Direito · MBA em Gestão
               </p>
             </div>
             <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
@@ -344,7 +345,7 @@ function Index() {
                 <div className="p-[1px]" style={{ borderColor: "#C8A84B", border: "1px solid #C8A84B" }}>
                   <img
                     src={imgGilson2}
-                    alt="Dr. Gilson Carvalho — Advogado"
+                    alt={`Dr. ${GILSON_FULL_NAME} — Advogado`}
                     width={450}
                     height={563}
                     loading="lazy"
@@ -361,13 +362,19 @@ function Index() {
                 Conheça quem atua em prol dos seus direitos.
               </h3>
               <p className="text-stone-300 leading-relaxed text-[15px] md:text-base">
-                Advogado desde 2004, com sólida atuação nos estados do Tocantins e Rio de Janeiro.
-                Professor universitário há mais de 15 anos, une a excelência acadêmica à prática jurídica
-                estratégica. Possui Mestrado em Direito (Processo, Justiça e Direitos Humanos) pela UCP-RJ
-                e tripla especialização: Direito Civil e Processual Civil (PUC/GO), Advocacia Estratégica
-                em Família e Sucessões, e MBA em Gestão na Advocacia pelo IPOG. Uma trajetória marcada pela
-                ética, transparência e proteção incansável dos direitos de seus clientes.
+                {GILSON_FULL_NAME} é advogado com formação acadêmica em Direito, gestão na advocacia,
+                Direito das Famílias e Sucessões, e Direito Civil e Processual. Sua trajetória reúne
+                excelência acadêmica e atuação jurídica estratégica em Família, Sucessões, Imobiliário
+                e Fundiário.
               </p>
+              <ul className="mt-6 space-y-3">
+                {GILSON_OFFICIAL_CREDENTIALS.map((credential) => (
+                  <li key={credential} className="flex items-start gap-3 text-stone-300 text-sm leading-relaxed">
+                    <span className="text-gold shrink-0">•</span>
+                    <span>{credential}</span>
+                  </li>
+                ))}
+              </ul>
 
               <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 border-t border-gold/20 pt-8">
                 {[
