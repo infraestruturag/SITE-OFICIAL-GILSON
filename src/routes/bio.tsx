@@ -15,6 +15,7 @@ import avatar from "@/assets/fotogilsonlink.png";
 import { trackWhatsApp, trackEvent } from "@/lib/analytics";
 import { getWhatsAppMessage } from "@/lib/whatsapp";
 import {
+  GILSON_CREDENTIALS_SUMMARY,
   GILSON_FULL_NAME,
   GILSON_OFFICIAL_CREDENTIALS,
   GILSON_OAB_REGISTRATIONS,
@@ -37,15 +38,13 @@ export const Route = createFileRoute("/bio")({
       { title: "Gilson Ribeiro Carvalho Filho | Formação Acadêmica e Canais Oficiais" },
       {
         name: "description",
-        content:
-          "Formação oficial de Gilson Ribeiro Carvalho Filho: Mestre em Direito pela UCP, MBA em Gestão na Advocacia e especializações em Família, Sucessões, Direito Civil e Processual.",
+        content: GILSON_CREDENTIALS_SUMMARY,
       },
       { name: "robots", content: "index, follow" },
       { property: "og:title", content: "Gilson Ribeiro Carvalho Filho | Formação Acadêmica e Canais Oficiais" },
       {
         property: "og:description",
-        content:
-          "Formação oficial de Gilson Ribeiro Carvalho Filho: Mestre em Direito pela UCP, MBA em Gestão na Advocacia e especializações em Família, Sucessões, Direito Civil e Processual.",
+        content: GILSON_CREDENTIALS_SUMMARY,
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://gilsoncarvalho.com/bio" },
@@ -289,8 +288,8 @@ function LinksPage() {
           transition={{ duration: 0.5, delay: 0.29 }}
           className="mt-5 text-stone-300 text-sm leading-relaxed max-w-sm"
         >
-          Advogado com formação acadêmica em Direito, gestão na advocacia, Direito das Famílias
-          e Sucessões, e Direito Civil e Processual.
+          Advogado com trajetória marcada pela formação sólida, atuação estratégica e atendimento
+          próximo, sigiloso e em todo o território nacional.
         </motion.p>
 
         <section aria-labelledby="academic-credentials-title" className="mt-8 w-full text-left">

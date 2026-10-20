@@ -8,3 +8,6 @@ export const GILSON_OFFICIAL_CREDENTIALS = [
   "Especialista em Direito Civil e Processual pela Pontifícia Universidade Católica de Goiás - PUC/GO (2004)",
   "Bacharel em Direito pelo Centro Universitário UnirG (2003)",
 ];
+
+export const GILSON_CREDENTIALS_SUMMARY =
+  `${GILSON_FULL_NAME}: ${GILSON_OFFICIAL_CREDENTIALS.join("; ")}.`;

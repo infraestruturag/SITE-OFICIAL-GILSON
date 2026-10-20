@@ -33,11 +33,8 @@ export const waLink = (msg: string) =>
   `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
 
 const PAIN_ICONS = [ShieldAlert, Scale, FileText, Gavel, Lock];
-const FAMILY_SUCCESSION_ROUTES = new Set(["/divorcio", "/pensao-e-guarda", "/uniao-estavel", "/inventario"]);
-const FAMILY_AUTHORITY_TEXT =
-  "Na atuação em Direito de Família e Sucessões, combina conhecimento jurídico e condução estratégica para proteger direitos e patrimônio em momentos decisivos.";
-const PROPERTY_AUTHORITY_TEXT =
-  "Nas áreas Imobiliária e Fundiária, atua com rigor técnico na defesa da propriedade, regularização de bens e segurança patrimonial.";
+const AUTHORITY_TEXT =
+  "Com atendimento sigiloso e acompanhamento direto, Dr. Gilson oferece orientação jurídica estratégica a clientes em todo o Brasil, com comunicação clara em cada etapa.";
 
 const reveal = {
   initial: { opacity: 0, y: 24 },
@@ -84,11 +81,7 @@ export default function LegalLanding(p: LandingProps) {
   const galleryPrefix = p.routePath?.replace(/^\//, "") ?? "divorcio";
   const galleryImages = Array.from({ length: 6 }, (_, index) => `/${galleryPrefix}${index + 1}.png`);
   const isPensaoEGuarda = p.routePath === "/pensao-e-guarda";
-  const authorityText =
-    p.authorityText ??
-    (FAMILY_SUCCESSION_ROUTES.has(p.routePath ?? "")
-      ? FAMILY_AUTHORITY_TEXT
-      : PROPERTY_AUTHORITY_TEXT);
+  const authorityText = p.authorityText ?? AUTHORITY_TEXT;
   const videoInstagramUrl =
     isPensaoEGuarda ? p.instagramLinks?.[0] ?? INSTAGRAM_URL : INSTAGRAM_URL;
   const waLink = (fallbackMessage: string) => {

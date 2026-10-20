@@ -14,7 +14,11 @@ import logo from "@/assets/logo_gilson.png";
 import { jsonLdScript, LOCAL_BUSINESS_JSONLD } from "@/lib/seo";
 import { initAnalytics, trackPageView, trackWhatsApp } from "@/lib/analytics";
 import { getWhatsAppMessage } from "@/lib/whatsapp";
-import { GILSON_FULL_NAME, GILSON_OFFICIAL_CREDENTIALS } from "@/lib/profile";
+import {
+  GILSON_CREDENTIALS_SUMMARY,
+  GILSON_FULL_NAME,
+  GILSON_OFFICIAL_CREDENTIALS,
+} from "@/lib/profile";
 import imgGilson from "@/assets/gilsonfoto1.png";
 import imgGilson2 from "@/assets/fotogilson3.png";
 import imgEscritorio from "@/assets/escritorio.png";
@@ -27,9 +31,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Dr. Gilson Carvalho | Advocacia Estratégica Patrimonial, Familiar e Imobiliária" },
-      { name: "description", content: "Gilson Ribeiro Carvalho Filho é advogado, Mestre em Direito pela UCP e especialista em Direito das Famílias e Sucessões, Direito Civil e Processual. Escritórios em Gurupi/TO e Rio de Janeiro/RJ." },
+      { name: "description", content: GILSON_CREDENTIALS_SUMMARY },
       { property: "og:title", content: "Dr. Gilson Carvalho | Advocacia Estratégica Patrimonial, Familiar e Imobiliária" },
-      { property: "og:description", content: "Gilson Ribeiro Carvalho Filho é advogado, Mestre em Direito pela UCP e especialista em Direito das Famílias e Sucessões, Direito Civil e Processual. Escritórios em Gurupi/TO e Rio de Janeiro/RJ." },
+      { property: "og:description", content: GILSON_CREDENTIALS_SUMMARY },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://gilsoncarvalho.com/og-gilson.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -362,10 +366,8 @@ function Index() {
                 Conheça quem atua em prol dos seus direitos.
               </h3>
               <p className="text-stone-300 leading-relaxed text-[15px] md:text-base">
-                {GILSON_FULL_NAME} é advogado com formação acadêmica em Direito, gestão na advocacia,
-                Direito das Famílias e Sucessões, e Direito Civil e Processual. Sua trajetória reúne
-                excelência acadêmica e atuação jurídica estratégica em Família, Sucessões, Imobiliário
-                e Fundiário.
+                {GILSON_FULL_NAME} alia sólida formação acadêmica, atendimento próximo e sigiloso
+                e atuação estratégica em todo o território nacional.
               </p>
               <ul className="mt-6 space-y-3">
                 {GILSON_OFFICIAL_CREDENTIALS.map((credential) => (
